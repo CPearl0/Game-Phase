@@ -17,6 +17,9 @@ public class GamePhaseKubeJSBindings {
     public void clearPhase(ServerPlayer player) {
         GamePhaseHelper.clearPhase(player);
     }
+    public boolean hasPhase(ServerPlayer player, String phase) {
+        return GamePhaseHelper.hasPhase(player, phase);
+    }
 
     public void addItemRestriction(String phase, ItemStack ...item) {
         PhaseItems.addItemRestriction(phase, item);

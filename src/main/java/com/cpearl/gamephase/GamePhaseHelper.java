@@ -63,6 +63,15 @@ public class GamePhaseHelper {
         });
     }
 
+    public static boolean hasPhase(ServerPlayer player, String phase) {
+        final boolean[] res = {false};
+        player.getCapability(GamePhaseCapabilityProvider.GAME_PHASE).ifPresent(phaseCapability -> {
+            if (phaseCapability.hasPhase(phase))
+                res[0] = true;
+        });
+        return res[0];
+    }
+
     public static void syncPlayer(ServerPlayer player) {
         player.getCapability(GamePhaseCapabilityProvider.GAME_PHASE).ifPresent(phaseCapability -> {
             GamePhaseMessage msg = new GamePhaseMessage(phaseCapability.getPhases(), GamePhaseMessage.SYNC);
