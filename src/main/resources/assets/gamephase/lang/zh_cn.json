@@ -1,0 +1,10 @@
+{
+  "commands.gamephase.info": "%s 有以下已解锁的游戏阶段: %s",
+  "commands.gamephase.add": "%s 获得了以下游戏阶段: %s",
+  "commands.gamephase.remove": "%s 失去了以下游戏阶段: %s",
+  "commands.gamephase.clear": "%s 失去了所有游戏阶段",
+  "tooltip.gamephase.hiddenname": "未知物品",
+  "message.gamephase.dropitem": "你掉落了一些未知物品!",
+  "message.gamephase.denypickup": "你还不能拾起该物品!",
+  "message.gamephase.denydimension": "你还不能进入该维度!"
+}

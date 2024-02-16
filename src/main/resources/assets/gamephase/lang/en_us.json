@@ -1,0 +1,10 @@
+{
+  "commands.gamephase.info": "%s has the following unlocks phases: %s",
+  "commands.gamephase.add": "%s get phase: %s",
+  "commands.gamephase.remove": "%s lose phase: %s",
+  "commands.gamephase.clear": "%s lose all the phases",
+  "tooltip.gamephase.hiddenname": "Unknown Item",
+  "message.gamephase.dropitem": "You dropped some unknown items!",
+  "message.gamephase.denypickup": "You can not pick up this!",
+  "message.gamephase.denydimension": "You can not enter this dimension now!"
+}
