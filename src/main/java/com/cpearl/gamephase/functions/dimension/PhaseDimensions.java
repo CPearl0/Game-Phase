@@ -13,4 +13,9 @@ public class PhaseDimensions {
         else
             dimensions.put(phase, new HashSet<>(List.of(dimension)));
     }
+
+    public static void removeDimensionRestriction(String phase, ResourceLocation ...dimension) {
+        if (dimensions.containsKey(phase))
+            dimensions.get(phase).removeAll(List.of(dimension));
+    }
 }

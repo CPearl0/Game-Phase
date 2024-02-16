@@ -26,7 +26,19 @@ public class GamePhaseKubeJSBindings {
         PhaseItems.addItemModRestriction(phase, mod);
     }
 
+    public void removeItemRestriction(String phase, ItemStack ...item) {
+        PhaseItems.removeItemRestriction(phase, item);
+    }
+
+    public void removeItemModRestriction(String phase, String ...mod) {
+        PhaseItems.removeItemModRestriction(phase, mod);
+    }
+
     public void addDimensionRestriction(String phase, ResourceLocation ...dimension) {
         PhaseDimensions.addDimensionRestriction(phase, dimension);
+    }
+
+    public void removeDimensionRestriction(String phase, ResourceLocation ...dimension) {
+        PhaseDimensions.removeDimensionRestriction(phase, dimension);
     }
 }
