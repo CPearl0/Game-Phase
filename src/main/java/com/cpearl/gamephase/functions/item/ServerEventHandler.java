@@ -58,7 +58,7 @@ public class ServerEventHandler {
                             dropItems.add(itemInventory);
                     for (var item : dropItems) {
                         player.drop(item, false);
-                        inventory.setItem(inventory.findSlotMatchingItem(item), ItemStack.EMPTY);
+                        inventory.removeItem(item);
                         player.displayClientMessage(DROPITEM_MESSAGE, true);
                     };
                 }

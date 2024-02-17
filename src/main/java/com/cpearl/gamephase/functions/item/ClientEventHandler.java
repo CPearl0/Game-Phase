@@ -23,18 +23,12 @@ public class ClientEventHandler {
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
     public static void onGamePhaseInitialize(GamePhaseInitializeEvent event) {
-        var jei = GamePhaseJEIPlugin.runtime;
-        if (jei == null)
-            return;
         oldPhases = event.getPhases();
         var items = PhaseItems.items;
         for (var entry: items.entrySet()) {
             if (!oldPhases.contains(entry.getKey())) {
                 var removeItems = entry.getValue();
-                Minecraft.getInstance().execute(() -> {
-                    jei.getIngredientManager()
-                            .removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, removeItems);
-                });
+                GamePhaseJEIPlugin.removeItems(removeItems);
             }
         }
     }
@@ -42,26 +36,17 @@ public class ClientEventHandler {
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
     public static void onGamePhaseSync(GamePhaseSyncEvent event) {
-        var jei = GamePhaseJEIPlugin.runtime;
-        if (jei == null)
-            return;
         var phases = event.getPhases();
         var items = PhaseItems.items;
         oldPhases.forEach(phaseOld -> {
             if (phases.contains(phaseOld) || !items.containsKey(phaseOld))
                 return;
-            Minecraft.getInstance().execute(() -> {
-                jei.getIngredientManager()
-                        .removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, items.get(phaseOld));
-            });
+            GamePhaseJEIPlugin.removeItems(items.get(phaseOld));
         });
         phases.forEach(phaseNew -> {
             if (oldPhases.contains(phaseNew) || !items.containsKey(phaseNew))
                 return;
-            Minecraft.getInstance().execute(() -> {
-                jei.getIngredientManager()
-                        .addIngredientsAtRuntime(VanillaTypes.ITEM_STACK, items.get(phaseNew));
-            });
+            GamePhaseJEIPlugin.addItems(items.get(phaseNew));
         });
         oldPhases = phases;
     }
