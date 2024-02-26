@@ -43,7 +43,7 @@ public class EventHandler {
         if (!(event.getEntity() instanceof ServerPlayer player))
             return;
         if (event.getDimension().location().toString().equals("minecraft:overworld") &&
-            player.serverLevel().dimension().location().toString().equals("minecraft:the_end"))
+            player.getLevel().dimension().location().toString().equals("minecraft:the_end"))
             player.getCapability(GamePhaseCapabilityProvider.GAME_PHASE).ifPresent(phaseCapability -> {
                 if (phaseCapability instanceof GamePhaseCapability capability) {
                     player.getPersistentData().put("clone_phases", capability.serializeNBT());

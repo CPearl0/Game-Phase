@@ -51,7 +51,7 @@ public class GamePhaseCommand {
                         phases.append(" ").append(phase);
                     });
                 });
-                context.getSource().sendSuccess(() -> Component.translatable("commands.gamephase.info", player.getDisplayName(), phases.toString()), true);
+                context.getSource().sendSuccess(Component.translatable("commands.gamephase.info", player.getDisplayName(), phases.toString()), true);
             });
         } catch (CommandSyntaxException e) {
             throw new RuntimeException(e);
@@ -68,7 +68,7 @@ public class GamePhaseCommand {
                 phases.append(" ").append(phase);
             });
         });
-        context.getSource().sendSuccess(() -> Component.translatable("commands.gamephase.info", player.getDisplayName(), phases.toString()), true);
+        context.getSource().sendSuccess(Component.translatable("commands.gamephase.info", player.getDisplayName(), phases.toString()), true);
     }
 
     private static void addPhase(CommandContext<CommandSourceStack> context) {
@@ -77,7 +77,7 @@ public class GamePhaseCommand {
             var phase = StringArgumentType.getString(context, "phase");
             players.forEach(player -> {
                 GamePhaseHelper.addPhase(player, phase);
-                context.getSource().sendSuccess(() -> Component.translatable("commands.gamephase.add", player.getDisplayName(), phase), true);
+                context.getSource().sendSuccess(Component.translatable("commands.gamephase.add", player.getDisplayName(), phase), true);
             });
         } catch (CommandSyntaxException e) {
             throw new RuntimeException(e);
@@ -90,7 +90,7 @@ public class GamePhaseCommand {
             var phase = StringArgumentType.getString(context, "phase");
             players.forEach(player -> {
                 GamePhaseHelper.removePhase(player, phase);
-                context.getSource().sendSuccess(() -> Component.translatable("commands.gamephase.remove", player.getDisplayName(), phase), true);
+                context.getSource().sendSuccess(Component.translatable("commands.gamephase.remove", player.getDisplayName(), phase), true);
             });
         } catch (CommandSyntaxException e) {
             throw new RuntimeException(e);
@@ -102,7 +102,7 @@ public class GamePhaseCommand {
             var players = EntityArgument.getPlayers(context, "targets");
             players.forEach(player -> {
                 GamePhaseHelper.clearPhase(player);
-                context.getSource().sendSuccess(() -> Component.translatable("commands.gamephase.clear", player.getDisplayName()), true);
+                context.getSource().sendSuccess(Component.translatable("commands.gamephase.clear", player.getDisplayName()), true);
             });
         } catch (CommandSyntaxException e) {
             throw new RuntimeException(e);

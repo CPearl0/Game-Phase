@@ -24,7 +24,7 @@ public class ServerEventHandler {
             for (var entry: items.entrySet()) {
                 if (!phaseCapability.hasPhase(entry.getKey())) {
                     var removeItems = entry.getValue();
-                    if (removeItems.stream().anyMatch(item -> ItemStack.isSameItem(item, event.getItem().getItem()))) {
+                    if (removeItems.stream().anyMatch(item -> ItemStack.isSame(item, event.getItem().getItem()))) {
                         event.setCanceled(true);
                         event.getItem().setPickUpDelay(60);
                         player.displayClientMessage(DENY_ITEMPICKUP_MESSAGE, true);
@@ -48,13 +48,13 @@ public class ServerEventHandler {
                     var removeItems = entry.getValue();
                     var dropItems = new ArrayList<ItemStack>();
                     for (var itemInventory : inventory.items)
-                        if (removeItems.stream().anyMatch(item -> ItemStack.isSameItem(item, itemInventory)))
+                        if (removeItems.stream().anyMatch(item -> ItemStack.isSame(item, itemInventory)))
                             dropItems.add(itemInventory);
                     for (var itemInventory : inventory.armor)
-                        if (removeItems.stream().anyMatch(item -> ItemStack.isSameItem(item, itemInventory)))
+                        if (removeItems.stream().anyMatch(item -> ItemStack.isSame(item, itemInventory)))
                             dropItems.add(itemInventory);
                     for (var itemInventory : inventory.offhand)
-                        if (removeItems.stream().anyMatch(item -> ItemStack.isSameItem(item, itemInventory)))
+                        if (removeItems.stream().anyMatch(item -> ItemStack.isSame(item, itemInventory)))
                             dropItems.add(itemInventory);
                     for (var item : dropItems) {
                         player.drop(item, false);

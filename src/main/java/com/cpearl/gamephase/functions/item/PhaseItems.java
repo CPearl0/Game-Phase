@@ -30,7 +30,7 @@ public class PhaseItems {
     public static void removeItemRestriction(String phase, ItemStack ...item) {
         if (items.containsKey(phase)) {
             for (var removeItem : item) {
-                items.get(phase).removeIf(i -> ItemStack.isSameItem(i, removeItem));
+                items.get(phase).removeIf(i -> ItemStack.isSame(i, removeItem));
             }
         }
     }
