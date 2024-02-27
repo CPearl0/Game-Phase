@@ -27,8 +27,7 @@ public class ClientEventHandler {
         var items = PhaseItems.items;
         for (var entry: items.entrySet()) {
             if (!oldPhases.contains(entry.getKey())) {
-                var removeItems = entry.getValue();
-                GamePhaseJEIPlugin.removeItems(removeItems);
+                GamePhaseJEIPlugin.removeItems(entry.getValue());
             }
         }
     }
