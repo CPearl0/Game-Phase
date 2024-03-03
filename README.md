@@ -2,7 +2,7 @@
 
 # 游戏阶段 Game Phase
 
-<img src="icon.png" width="40%" alt="Block Crafting Title Image">
+<img src="icon.png" width="40%" alt="Game Phase Title Image">
 
 | [![][curseforge-badge]][curseforge-download] | [![][modrinth-badge]][modrinth-download] | [![][discord-badge]][discord-link] |
 | -------------------------------------------- | ---------------------------------------- | ---------------------------------- |
