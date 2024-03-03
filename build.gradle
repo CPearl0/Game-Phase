@@ -217,3 +217,7 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+
+tasks.withType(Jar).configureEach {
+    archiveFileName = "${mod_name}-${minecraft_version}-${mod_version}.jar"
+}
